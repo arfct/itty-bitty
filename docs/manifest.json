@@ -9,7 +9,7 @@
       "sizes": "32x32"
     }
   ],
-  "start_url": "/edit",
+  "start_url": "/index",
   "background_color": "#3367D6",
   "display": "browser",
   "scope": "/",
@@ -19,7 +19,7 @@
       "name": "New",
       "short_name": "New Site",
       "description": "New Site",
-      "url": "/edit",
+      "url": "/index",
       "icons": [{ "src": "/favicon.svg", "sizes": "32x32" }]
     }
   ]
