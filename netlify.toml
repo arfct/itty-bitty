@@ -1,6 +1,5 @@
-base = ""
-publish = "."
-command = ""
+[[plugins]] 
+package = "@netlify/plugin-functions-install-core"
 
 
 [[edge_functions]]
