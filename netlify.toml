@@ -1,3 +1,8 @@
+base = ""
+publish = "."
+command = ""
+
+
 [[edge_functions]]
   path = "/*"
   function = "metadata"
