@@ -1,8 +1,24 @@
 {
-  "dependencies": {
-    "brotli-wasm": "^1.1.0"
+  "name": "aah-cli",
+  "version": "1.0.0",
+  "description": "Agent-Assisted Hypermedia Encoding CLI",
+  "main": "aah-cli.js",
+  "type": "module",
+  "bin": {
+    "aah-cli": "./aah-cli.js"
   },
-  "devDependencies": {
-    "netlify-cli": "^11.5.1"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "itty-bitty",
+    "cli",
+    "hypermedia"
+  ],
+  "author": "Jules",
+  "license": "ISC",
+  "dependencies": {
+    "lzma-native": "^8.0.6",
+    "simple-git": "^3.28.0"
   }
 }
