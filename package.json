@@ -1,9 +1,22 @@
 {
+  "name": "itty-bitty",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "NODE_ENV=development node server/index.js",
+    "build": "node build-v2.js"
+  },
   "dependencies": {
     "brotli-wasm": "^1.1.0",
+    "compression": "^1.7.4",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
     "sharp": "^0.31.3"
   },
   "devDependencies": {
-    "netlify-cli": "^11.5.1"
+    "netlify-cli": "^11.5.1",
+    "terser": "^5.44.0",
+    "uglifycss": "^0.0.29"
   }
 }
