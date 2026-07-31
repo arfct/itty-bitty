@@ -11,6 +11,25 @@ function decodeURL(s) {
 function atou(b64) { return decodeURIComponent(escape(atob(b64))); }
 function utoa(data) { return btoa(unescape(encodeURIComponent(data))); }
 
+// Shared SVG->PNG renderer: https://github.com/arfct/og-svg
+const RENDER_ORIGIN = "https://og-svg.arfct.workers.dev";
+
+// Builds a render URL from SVG markup.
+//
+// This replaces "/.netlify/functions/rasterize/" + svg, which never worked:
+// rasterize.js read the query string, not the path, so every call 502'd. It
+// also put unescaped markup straight into a URL path.
+//
+// base64url keeps the payload URL-safe with no percent-encoding, which matters
+// because Cloudflare caps URLs at 16KB.
+function renderUrl(svg) {
+  const payload = utoa(svg)
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+  return `${RENDER_ORIGIN}/png?s=${payload}`;
+}
+
 function pathToMetadata(path) {
   let components = path.substring(1).split("/");
   let info = {title: decodePrettyComponent(components.shift())}
@@ -56,7 +75,7 @@ export default async (request, context) => {
 
         if (info.i) {
           info.i = decodeURL(info.i)
-          if (!info.i.startsWith("http")) info.i = "/.netlify/functions/rasterize/" + info.i
+          if (!info.i.startsWith("http")) info.i = renderUrl(info.i)
           content.push(mProp("og:image", info.i)); 
           if (info.iw) content.push(mProp("og:image:width", info.iw)); 
           if (info.ih) content.push(mProp("og:image:width", info.ih)); 
