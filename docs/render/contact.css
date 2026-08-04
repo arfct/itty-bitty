@@ -22,6 +22,7 @@ body {
   justify-content:center;
   align-items: center;
   min-height:100vh;
+  margin:0;
 }
 
 #arc-theme {
@@ -40,11 +41,11 @@ body {
 
 .contact {
   background-color: rgba(255,255,255,0.5);
-  width:320px;
+  width:360px;
   min-height:518px;
   box-shadow: var(--shadow-elevation-medium);
   margin-bottom:10vh;
-  border-radius:10px;
+  border-radius:4px;
   display:flex;
   flex-direction: column;
   justify-content: space-between;
@@ -58,12 +59,18 @@ body {
   width:320px;
 }
 
-/* @media only screen and (min-width: 640px) {
+@media only screen and (min-width: 640px) {
   .contact {
     flex-direction: row;
     width:640px;
   }
-} */
+}
+
+@media only screen and (max-width: 400px) {
+  .contact {
+    width:100%;
+  }
+}
 
 .header {
   flex: 1 1 auto;

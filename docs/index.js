@@ -333,6 +333,7 @@
         // fragment = fragment.replace("text/plain,", "text/html").replace(",", "text/html");
        
         renderMode = "data";
+      } else if (durl.mediatype == "multipart/related") {
       } else if (durl.type == "text") {
       } else if (durl.type == "image") {
       } else if (durl.type == undefined) {

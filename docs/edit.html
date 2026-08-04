@@ -33,16 +33,7 @@
 
 
 
-<div id="doc-title" class="toolbarbutton hide-before-edit" placeholder="untitled"> 
-  <div class="title" id="doc-title-text"></div>
-  <form id="md-contents" class="menu">
-    <div class="inputrow"><label for="md-title">title</label><input type="text" name="title" id="md-title" placeholder="untitled"><input title="Include link metadata" type="checkbox" name="includeMetadata" id="md-include" value="true" checked></div>
-    <div class="inputrow metadata-on"><label for="md-description">description</label><input type="text" name="description" id="md-description" placeholder="text"></div>
-    <div class="inputrow metadata-on"><label for="md-favicon">favicon</label><input type="text" name="favicon" id="md-favicon" placeholder="emoji or url"></div>
-    <div class="inputrow metadata-on"><label for="md-image">image</label><input type="text" name="image" id="md-image" placeholder="image url"></div>
-    <div class="inputrow"><label for="md-password">password</label><input type="text" name="password" id="md-password" placeholder="encryption password"></div>
-  </form>
-</div>
+
 
 <div id="placeholder">&nbsp;itty bitty things<br>&nbsp;can be conveyed in a link.<br>&nbsp;type here &ndash; and then share!<p>&nbsp;<a id="ib-info" href="http://about.bitty.site" target="_blank">about itty bitty</a></p></div>
 
@@ -57,7 +48,7 @@
     <div id="mainmenu">
       <div class="menu-item">menu</div>
       <div id="menu-contents" class="menu">
-        <a id="preview">show preview</a>
+        <!-- <a id="preview">show preview</a> -->
         <a id="copy">copy link</a>
         <hr>
         <span id="menus-share-hint" class="disabled">share via</span><br>
@@ -75,7 +66,18 @@
 
 
   <div class="toolbar hide-before-edit" id="formatbar">
-
+    <div id="doc-title" class="toolbarbutton hide-before-edit" placeholder="untitled"> 
+      <div class="title" id="doc-title-text"></div>
+      <form id="md-contents" class="menu">
+        <div class="inputrow"><label for="md-title">title</label><input type="text" name="title" id="md-title" placeholder="untitled"><input title="Include link metadata" type="checkbox" name="includeMetadata" id="md-include" value="true" checked></div>
+        <div class="inputrow metadata-on"><label for="md-description">description</label><input type="text" name="description" id="md-description" placeholder="text"></div>
+        <div class="inputrow metadata-on"><label for="md-favicon">favicon</label><input type="text" name="favicon" id="md-favicon" placeholder="emoji or url"></div>
+        <div class="inputrow metadata-on"><label for="md-image">image</label><input type="text" name="image" id="md-image" placeholder="image url"></div>
+        <div class="inputrow"><label for="md-password">password</label><input type="text" name="password" id="md-password" placeholder="encryption password"></div>
+        <div class="inputrow"><label for="md-params">params</label><input type="text" name="params" id="md-params" placeholder="extra parameters"></div>
+      </form>
+    </div>
+    <div class="menu-item" contenteditable id="url-preview">https://bitty.site/something</div>
     <div class="menu-item" id="format-toggle">Aa</div>
     <span class="ql-formats">
       <button class="ql-bold"></button>
@@ -93,6 +95,9 @@
       <button type="button" class="ql-list" value="ordered"></button>
       <button class="ql-indent" value="-1"></button>
       <button class="ql-indent" value="+1"></button>
+    </span>
+    <span class="ql-formats">
+      <button id="preview" class="preview">PREVIEW</button>
     </span>
   </div>
 </div>

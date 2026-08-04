@@ -27,6 +27,7 @@ let siteIcons = {
   "github.com": {icon: "github", reformat:(a) => a.replace(/github.com\/(.*)/, "@$1")},
   "medium.com": {icon: "medium"},
   "twitch.tv": {icon: "twitch"},
+  "discordapp.com": {icon: "discord", reformat:(a) => "Discord"},
 }
 
 let spriteString = `<svg xmlns="http://www.w3.org/2000/svg" width="192" height="24" fill="none" viewBox="0 0 192 24">

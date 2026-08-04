@@ -1,6 +1,8 @@
 import * as bitty from './bitty.js';
+import * as bitty_menu from '/bitty-menu.js';
 
 window.bitty = bitty;
+window.el = bitty.el;
 
 var QS = document.querySelector.bind(document);
 var QSS = document.querySelectorAll.bind(document);
@@ -87,7 +89,9 @@ window.onload = async function() {
   QS("#qrcode").onclick = makeQRCode;
   QS("#upload").onclick = upload;
   QS("#share").onclick = share;
-  if (!navigator.share) QS("#share").style.display = "none"
+  QS("#url-preview").onclick = () => {document.execCommand('selectAll',false,null)};
+  
+  // if (!navigator.share) QS("#share").style.display = "none"
   QS("#twitter").onclick = tweetLink;
   QS("#copy").onclick = copyLink;
   QS("#preview").onclick = togglePreview;
@@ -299,27 +303,34 @@ async function handleContentChange() {
     text = editor.innerHTML;
   }
 
+  console.log("text", text, rawHTML);
   if (text.trim().length) {
     let url = `data:text/html;charset=utf-8,${encodeURIComponent(text)}`;
     let durl = new bitty.DataURL(url)
 
+    if (metadata.params) {
+      console.log("parameters", metadata.params)
+      metadata.params.split(";").forEach(p => {
+        let ps = p.split('=');
+        durl.params[ps.shift()] = ps.pop()
+      })
+    }
     if (metadata.password) {
       durl.params.cipher = "aes-gcm"
       durl.params.style = "default"
       durl.params._password = metadata.password;
     }
 
+    
     durl = await durl.compress(bitty.GZIP_MARKER);
     let ratio = durl.href.length / url.length;
     console.debug(`Compressed from ${url.length} to ${durl.href.length} bytes (${Math.round(ratio * 100)}%)`);
 
     
-
-
-    if (ratio <= 0.95) url = durl.href;
+    if (ratio >= 1.0) url = durl.href;
     if (rawHTML) {
       updateLink(url, metadata);
-    } else if (metadata.password) {
+    } else if (metadata.password || metadata.params) {
       updateLink(durl.href, metadata);
     } else {
       updateLink("?" + durl.data, metadata);
@@ -366,12 +377,14 @@ function updateLink(url, metadata, push) {
   }
 
   var hash = location.hash;
-  if (true) {
+  if (false) {
     if (push || !hash || !hash.length) {
       window.history.pushState(null, null, bittyLink);
     } else {
       window.history.replaceState(null, null, bittyLink);
     }
+  } else {
+    document.getElementById("url-preview").innerText = bittyLink
   }
 
   var length = bittyLink.length;
@@ -390,14 +403,17 @@ function updateLink(url, metadata, push) {
   }
 }
 
-function share() {
-  navigator.share({
-    title: 'itty.bitty',
-    url: bittyLink
-  }).then(() => {
-    console.log('Shared!');
-  })
-  .catch(console.error);
+function share(e) {
+  let menu = new bitty_menu.Menu(e.target);
+  console.log("men", menu)
+  menu.show();
+  // navigator.share({
+  //   title: 'itty.bitty',
+  //   url: bittyLink
+  // }).then(() => {
+  //   console.log('Shared!');
+  // })
+  // .catch(console.error);
 }
 function makeQRCode() {
   var url =
