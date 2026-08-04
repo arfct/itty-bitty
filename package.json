@@ -1,8 +1,5 @@
 {
   "dependencies": {
     "brotli-wasm": "^1.1.0"
-  },
-  "devDependencies": {
-    "netlify-cli": "^11.5.1"
   }
 }
