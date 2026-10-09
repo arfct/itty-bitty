@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "brotli-wasm": "^1.1.0",
-    "sharp": "^0.31.3"
+    "brotli-wasm": "^1.1.0"
   }
 }

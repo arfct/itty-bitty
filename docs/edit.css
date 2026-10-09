@@ -117,19 +117,20 @@ body.drag #content {
   outline: none;
   /* min-width: 180px; */
   /* top: 0; */
-  position: absolute;
+  /* position: absolute; */
   padding: 0 1em;
   font-weight: bold;
   /* opacity:0.33; */
   user-select: none;
   cursor:
   default;
-  margin-left: -1em;
+  /* margin-left: -1em; */
   line-height: 2.5em;
   display: inline-block;
-  margin-top: -2.7em;
+  /* margin-top: -2.7em; */
   z-index: 2000;
   float: left;
+  font-size: 16px;
 }
 
 #doc-title.open {
@@ -478,6 +479,14 @@ div.menu-contents {
 .menu-item:hover {
   background-color:var(--text-color);
   color:var(--background-color) !important;
+}
+
+#url-preview {
+  font-weight:normal;
+  max-width: 460px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
 }
 
 .menu hr {
