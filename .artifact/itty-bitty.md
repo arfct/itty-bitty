@@ -10,11 +10,11 @@ links:
   source: https://github.com/arfct/itty-bitty
 media:
   - src: shared-page.png
-    caption: A short note, opened from nothing but the fragment of its link
-    alt: A white card reading "Meet me at the park at 9:30. Bring a coat.—Pistachio" over soft red, blue and mint shapes
+    caption: A short note, inflated from nothing but the fragment of its link
+    alt: A white page headed Notes on the Analytical Engine, with a subheading and four short paragraphs of text, one with a blue link
   - src: editor.png
-    caption: The editor in its empty state, with a menu at the top right
-    alt: A mostly blank white page with a few lines of grey italic text and a blue link, and "menu" in the corner
+    caption: The editor holding a draft, its link and byte count along the top
+    alt: A white editor page titled Analytical Engine notes, with a heading, a subheading and four short paragraphs, one containing a blue link, under a bar showing the link, a byte count of 601, and share and menu buttons
 icon_shape: none
 unconfirmed:
   - date
