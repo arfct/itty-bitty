@@ -16,7 +16,6 @@ media:
     caption: The editor in its empty state, with a menu at the top right
     alt: A mostly blank white page with a few lines of grey italic text and a blue link, and "menu" in the corner
 icon_shape: none
-role: Design, Engineering
 unconfirmed:
   - date
 ---
