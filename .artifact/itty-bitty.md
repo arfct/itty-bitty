@@ -4,7 +4,6 @@ date: 2018-07
 category: product
 tags:
   - web
-  - open-source
 url: https://itty.bitty.site
 links:
   source: https://github.com/arfct/itty-bitty
