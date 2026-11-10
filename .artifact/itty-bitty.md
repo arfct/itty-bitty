@@ -9,18 +9,20 @@ links:
   source: https://github.com/arfct/itty-bitty
 media:
   - src: shared-page.png
-    caption: A short note, decompressed from the fragment of its link
+    caption: A page opened from an itty.bitty link
     alt: A white page headed Notes on the Analytical Engine, with a subheading and four short paragraphs of text, one with a blue link
   - src: editor.png
-    caption: The editor with a draft, and its link and byte count along the top
+    caption: The editor, with the link and its size of 601 bytes in the bar at the top
     alt: A white editor page titled Analytical Engine notes, with a heading, a subheading and four short paragraphs, one containing a blue link, under a bar showing the link, a byte count of 601, and share and menu buttons
 icon_shape: none
 unconfirmed:
   - date
 ---
 
-itty.bitty stores a whole page in its link. The page's HTML is compressed into the URL fragment, and the receiving browser decompresses it from the address. There is no server, no storage and no account; the link carries the page.
+itty.bitty is a website that puts a whole page into a link. It compresses the page's HTML into the fragment of a URL. When the link is opened, the site decompresses the fragment in the browser and displays the page. Browsers do not send the fragment to a server, so the content is stored only in the link.
 
-Compression runs in the browser with gzip, LZMA or Brotli, and a link can be turned into a QR code. Pages can use their own styles, such as a recipe or a contact card.
+The editor shows the link and its size in bytes, and can turn the link into a QR code. It compresses with deflate. Links compressed with LZMA, which the first version used, or with Brotli also open. A link can hold data other than HTML, and a recipe in JSON-LD is displayed as a recipe page.
 
-JavaScript, static pages. 2018.
+The site is static files on Netlify. An edge function there builds link previews from the title in the URL path.
+
+JavaScript. 2018.
