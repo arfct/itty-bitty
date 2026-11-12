@@ -1,5 +1,5 @@
 ---
-title: Itty Bitty
+title: itty.bitty
 date: 2018-07
 category: product
 tags:
