@@ -1,6 +1,7 @@
 ---
 title: itty.bitty
 date: 2018-07
+status: released
 category: product
 tags:
   - web
@@ -15,8 +16,7 @@ media:
     caption: The same notes in the editor, where the bar at the top gives the link and its length, 601 bytes
     alt: A white editor page titled Analytical Engine notes, with a heading, a subheading and four short paragraphs, one containing a blue link, under a bar showing the link, a byte count of 601, and share and menu buttons
 icon_shape: none
-unconfirmed:
-  - date
+unconfirmed: [date, status]
 ---
 
 A page made with itty.bitty exists only as its link. The site compresses the page's HTML with deflate and writes the result into the fragment, the part of an address after the #, and when the link is opened it decompresses the fragment in the browser and displays the page. Browsers do not send a fragment to a server, so the page is stored nowhere else.
