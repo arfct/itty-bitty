@@ -2,7 +2,7 @@
 title: itty.bitty
 date: 2018-07
 status: released
-category: product
+category: web-tool
 tags:
   - web
 url: https://itty.bitty.site
